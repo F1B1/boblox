@@ -1,28 +1,31 @@
 .footer {
-    margin-top: 56px;
+      border-top: 1px solid #181B2A;
+      padding-top: 16px;
+    margin-top: 40px;
     margin-bottom: 32px;
-		&__container {
-            
-		}
 
-		&__coopyright {
-		}
+      &__container {
+          
+      }
 
-		&__list {
-            display: flex;
-            gap: 16px;
-            align-items:center;
-            flex-wrap: wrap;
-		}
+      &__coopyright {
+      }
+
+      &__list {
+      display: flex;
+      gap: 16px;
+      align-items:center;
+      flex-wrap: wrap;
+      }
 
         &__link{
 
         }
 
-		&__link, &__coopyright {
+      &__link, &__coopyright {
             color: #5F6368;
             font-size: 13px;
             font-weight: 500;
-		}
+      }
 }
 
