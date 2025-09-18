@@ -1,0 +1,15 @@
+/* stylelint-disable */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background-color: #202428;
+    transition: all 0.3s ease 0s;
+    &.disabled,
+    &:disabled {
+        opacity: 0.5;
+        pointer-events: none;
+        user-select: none;
+    }
+}

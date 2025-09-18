@@ -1,0 +1,89 @@
+.icon {
+    fill: transparent;
+    stroke: var(--text-primary);
+    stroke-linecap: round;
+    stroke-width: 2px;
+}
+
+.left-up {
+    animation: 1.2s ease leftUp forwards;
+    will-change: transform;
+}
+
+.left-down {
+    animation: 1.2s ease leftDown forwards;
+    will-change: transform;
+}
+
+.right-up {
+    animation: 1.2s ease rightUp forwards;
+    will-change: transform;
+}
+
+.right-down {
+    animation: 1.2s ease rightDown forwards;
+    will-change: transform;
+}
+
+.top-up {
+    animation: 1.2s ease topUp forwards;
+    will-change: transform;
+}
+
+.top-down {
+    animation: 1.2s ease topDown forwards;
+    will-change: transform;
+}
+
+.scale-up {
+    animation: 1s ease scaleUp forwards;
+    will-change: transform;
+}
+
+.scale-down {
+    animation: 1s ease scaleDown forwards;
+    will-change: transform;
+}
+
+.title{
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.swiper-button-prev, .swiper-button-next{
+    position: relative;
+    left: 0;
+    right: 0;
+    &::after{
+        content: none;
+    }
+}
+
+.name{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    box-orient: vertical;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.2;
+    transition: all 0.3s ease 0s;
+}
+
+.circle{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-color: var(--text-primary);
+    top: 0%;
+    right: 0%;
+    border-radius: 50%;
+    filter: blur(130px);
+    z-index: 1;
+}

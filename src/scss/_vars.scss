@@ -1,0 +1,24 @@
+:root {
+    // base
+    --font-family: "Rubik", sans-serif;
+    --content-width: 2510px;
+    --container-offset: 25px;
+    --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+
+    // colors
+    --text-primary: #fff ;
+    --text-gray: #959799;
+    --bg-primary:  #06060E;
+    --bg-iframe: #0E1114;
+    --bg-ui-block:#202428; 
+    --bg-buttons: #26272A; 
+    --bg-hv: rgba(246, 246, 246, 0.5);
+
+
+    // rgba(255, 255, 255, 0.32)
+
+    --trans: 0.25s ease-out;
+    --trans-second: 0.6s ease-out;
+    --trans-third: 0.4s ease-out;
+    --trans-four: 0.6s ease;
+  }

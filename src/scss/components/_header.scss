@@ -1,0 +1,13 @@
+.header {
+    border-bottom: 1px solid #181B2A;
+    &__container {
+        min-height: 66px;
+        display: flex;
+        align-items:center;
+        justify-content: flex-start;
+    }
+
+    &__logo {
+        display: flex;
+    }
+}

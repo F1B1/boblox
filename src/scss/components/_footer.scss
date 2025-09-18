@@ -1,0 +1,28 @@
+.footer {
+    margin-top: 56px;
+    margin-bottom: 32px;
+		&__container {
+            
+		}
+
+		&__coopyright {
+		}
+
+		&__list {
+            display: flex;
+            gap: 16px;
+            align-items:center;
+            flex-wrap: wrap;
+		}
+
+        &__link{
+
+        }
+
+		&__link, &__coopyright {
+            color: #5F6368;
+            font-size: 13px;
+            font-weight: 500;
+		}
+}
+

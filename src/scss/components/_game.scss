@@ -1,0 +1,173 @@
+.game {
+    margin-top: 20px;
+		&__container {
+            display: flex;
+            gap: 16px;
+            @include tablet{
+                flex-direction: column;
+            }
+		}
+
+		&__body {
+            
+		}
+
+		&__game {
+            flex: 1 1 auto;
+            background-color: #0E1114;
+            border: 1px solid #26272A;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 40px;
+            iframe{
+                width: 100%;
+                height: #{fluid(500px, 700px, 1440px, 1920px)};
+                border: 1px solid #171E2F;
+                border-radius: 10px;
+                overflow: hidden;
+                margin-bottom: 10px;
+            }
+            &.full{
+                position: fixed;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                iframe{
+                    height: 95%;
+                }
+            }
+		}
+
+		&__controls {
+            display: flex;
+            align-items:center;
+            justify-content: space-between; 
+		}
+
+		&__game-name {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+		}
+
+		&__action {
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            gap: 5px;
+            button{
+                padding: 6px;
+                font-size: 13px;
+                font-weight: 500;
+                transition: all 0.4s ease 0s;
+                &.active, &:hover{
+                    color: var(--text-primary);
+                    use{
+                        fill: var(--text-primary);
+                    }
+                }
+            }
+            use{
+                fill: #5F6368;
+                transition: all 0.4s ease 0s;
+            }
+		}
+
+		&__like {
+            display: flex;
+            align-items:flex-end;
+            justify-content: center;
+            line-height: 1;
+            border-radius: 8px 0 0 8px;
+            gap: 4px;
+            color: #5F6368;
+            .like-count{
+                padding-left: 2px;
+            }
+		}
+
+		&__dislike {
+            margin-left: -2px;
+            border-radius: 0 8px 8px 0;
+		}
+
+		&__fullscreen {
+            border-radius: 8px;
+		}
+
+		&__breadcrumblist {
+            margin-bottom: 16px;
+		}
+
+		&__description {
+		}
+
+		&__title {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            margin-bottom: 10px;
+		}
+
+		&__text {
+            font-size: 15px;
+            line-height: 1.3;
+            font-weight: 400;
+            color: var(--text-gray);
+		}
+
+		&__aside {
+            display: flex;
+            flex: 0 0 #{fluid(300px, 398px, 1024px, 1440px)};
+            flex-direction: column;
+            gap: 20px;
+            background-color: var(--bg-iframe);
+            padding: 16px;
+            min-height: 100%;
+            @include tablet{
+                flex: unset;
+            }
+		}
+
+		&__ads {
+            border-radius: 10px;
+            background-color: #212121;
+            width: 100%;
+            min-height: 133px;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            p{
+                font-size: 18px;
+                font-weight: 500;
+                color: #595959;
+            }
+		}
+
+		&__columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+		}
+
+		&__column {
+            &:hover{
+                h3{
+                    color: var(--text-gray);
+                }
+            }
+		}
+
+		&__image {
+            margin-bottom: 10px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+		}
+
+		&__name {
+            
+		}
+}

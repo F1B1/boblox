@@ -1,0 +1,227 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.page {
+    height: 100%;
+    font-family: var(--font-family, sans-serif);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+
+.page__body {
+    margin: 0;
+    min-width: 375px;
+    min-height: 100%;
+    font-weight: 500;
+    font-variant-numeric: lining-nums;
+    font-size: 13px;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    overflow-x: hidden;
+
+    &.is-dark::after {
+        opacity: 1;
+    }
+}
+
+@media (width >= 1024px) {
+    .page__body {
+        &.loading {
+            overflow: hidden;
+        }
+    }
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+a {
+    font: inherit;
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+.site-container {
+    overflow: hidden; // если используете на сайте position: sticky - уберите эту настройку
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    &.visible {
+        overflow: visible;
+
+        @include tablet {
+            overflow: hidden;
+        }
+    }
+
+    &.visible-s {
+        overflow: visible;
+
+        @include small-tablet {
+            overflow: hidden;
+        }
+    }
+
+
+}
+
+.is-hidden {
+    display: none !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.no-scrolling {
+  overflow: hidden;
+}
+
+.is-start {
+    overflow: hidden;
+    padding-right: var(--basic-scroll-width);
+
+    @include tablet {
+        overflow: visible;
+    }
+}
+
+.btn-reset {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.list-reset {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.input-reset {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: 0;
+    background-color: #fff;
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+        display: none;
+    }
+}
+
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 var(--container-offset);
+    max-width: var(--container-width);
+
+    @include big-desktop {
+        padding: 0 16px;
+    }
+
+    @include small-tablet {
+        padding: 0 8px;
+    }
+}
+
+.js-focus-visible :focus:not(.focus-visible) {
+    outline: none;
+}
+
+.centered {
+    text-align: center;
+}
+
+.dis-scroll {
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    overscroll-behavior: none;
+}
+
+.page--ios .dis-scroll {
+    position: relative;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.f-c {
+    align-items: center;
+    justify-content: center;
+}
+
+.f-ac {
+    align-items: center;
+}
+
+.f-as {
+    align-items: flex-start;
+}
+
+.f-ae {
+    align-items: flex-end;
+}
+
+.f-col {
+    flex-direction: column;
+}
+
+.f-jsb {
+    justify-content: space-between;
+}
+
+.f-jc {
+    justify-content: center;
+}
+
+.f-wrap {
+    flex-wrap: wrap;
+}
+
+.img-contain {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

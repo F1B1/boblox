@@ -1,0 +1,17 @@
+// базовые подключения
+@import "vars";
+@import "mixins";
+@import "fonts";
+@import "settings";
+@import "general";
+@import "keyframes";
+@import "ui";
+
+// подключения компонентов страницы
+@import "./components/header";
+@import "./components/continue";
+@import "./components/recommendation";
+@import "./components/game";
+@import "./components/breadcrumblist";
+@import "./components/footer";
+
