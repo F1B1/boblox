@@ -12,9 +12,12 @@
 
       &__body {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(5, 1fr);
             gap: 10px;
             margin-bottom: 24px;
+            @include ultra-desktop{
+                  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
             @include small-tablet{
                   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
             }
@@ -38,7 +41,12 @@
       }
 
       &__name {
-      max-width: 185px;
+      max-width: 240px;
+      font-size: 13px;
+      @include ultra-desktop{
+            font-size: 13px;
+            max-width: 185px;
+      }
       }
 
       &__button{

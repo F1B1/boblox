@@ -10665,6 +10665,7 @@ const setSwipers = () => {
   let sliderContinue = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](".continue__swiper", {
     slidesPerView: 'auto',
     spaceBetween: 10,
+    speed: 400,
     navigation: {
       nextEl: '.continue__button-next',
       prevEl: '.continue__button-prev'
@@ -10675,6 +10676,130 @@ const setSwipers = () => {
       }
     }
   });
+};
+
+/***/ }),
+
+/***/ "./src/js/functions/gameHandler.js":
+/*!*****************************************!*\
+  !*** ./src/js/functions/gameHandler.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   gameHandler: () => (/* binding */ gameHandler)
+/* harmony export */ });
+const gameHandler = () => {
+  if (document.querySelector(".game__game")) {
+    const game = document.querySelector(".game__game");
+    const iframe = game.querySelector("iframe");
+    const btnLike = game.querySelector(".game__like");
+    const btnDislike = game.querySelector(".game__dislike");
+    const btnFullscreen = game.querySelector(".game__fullscreen");
+    const savedState = localStorage.getItem("gameVote");
+    if (savedState === "like") {
+      btnLike.classList.add("active");
+    } else if (savedState === "dislike") {
+      btnDislike.classList.add("active");
+    }
+    btnLike.addEventListener("click", () => {
+      btnLike.classList.toggle("active");
+      if (btnLike.classList.contains("active")) {
+        btnDislike.classList.remove("active");
+        localStorage.setItem("gameVote", "like");
+      } else {
+        localStorage.removeItem("gameVote");
+      }
+    });
+    btnDislike.addEventListener("click", () => {
+      btnDislike.classList.toggle("active");
+      if (btnDislike.classList.contains("active")) {
+        btnLike.classList.remove("active");
+        localStorage.setItem("gameVote", "dislike");
+      } else {
+        localStorage.removeItem("gameVote");
+      }
+    });
+    function isMobileDevice() {
+      return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+    function lockLandscapeOrientation() {
+      if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock('landscape-primary').catch(err => {
+          console.log('Не удалось заблокировать ориентацию:', err);
+        });
+      }
+    }
+    function unlockOrientation() {
+      if (screen.orientation && screen.orientation.unlock) {
+        screen.orientation.unlock();
+      }
+    }
+    function enterFullscreen() {
+      if (isMobileDevice()) {
+        game.classList.add('full-mobile');
+        lockLandscapeOrientation();
+      } else {
+        game.classList.add('full');
+      }
+      document.body.classList.add('no-scrolling');
+    }
+    function exitFullscreen() {
+      game.classList.remove('full', 'full-mobile');
+      document.body.classList.remove('no-scrolling');
+      unlockOrientation();
+    }
+    function toggleFullscreen() {
+      const isFullscreen = game.classList.contains('full') || game.classList.contains('full-mobile');
+      if (isFullscreen) {
+        exitFullscreen();
+      } else {
+        enterFullscreen();
+      }
+    }
+    if (isMobileDevice()) {
+      setTimeout(() => {
+        enterFullscreen();
+      }, 100);
+    }
+    if (btnFullscreen) {
+      btnFullscreen.addEventListener('click', function (e) {
+        e.preventDefault();
+        toggleFullscreen();
+      });
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        const isFullscreen = game.classList.contains('full') || game.classList.contains('full-mobile');
+        if (isFullscreen) {
+          exitFullscreen();
+        }
+      }
+    });
+    window.addEventListener('orientationchange', function () {
+      if (isMobileDevice() && game.classList.contains('full-mobile')) {
+        setTimeout(() => {
+          lockLandscapeOrientation();
+        }, 100);
+      }
+    });
+    window.addEventListener('resize', function () {
+      if (!isMobileDevice() && game.classList.contains('full-mobile')) {
+        game.classList.remove('full-mobile');
+        game.classList.add('full');
+      } else if (isMobileDevice() && game.classList.contains('full')) {
+        game.classList.remove('full');
+        game.classList.add('full-mobile');
+        lockLandscapeOrientation();
+      }
+    });
+    if (isMobileDevice()) {
+      window.addEventListener('beforeunload', function (e) {
+        unlockOrientation();
+      });
+    }
+  }
 };
 
 /***/ }),
@@ -11063,7 +11188,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions_onAnyClick_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./functions/onAnyClick.js */ "./src/js/functions/onAnyClick.js");
 /* harmony import */ var _functions_onScrollEvent_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./functions/onScrollEvent.js */ "./src/js/functions/onScrollEvent.js");
 /* harmony import */ var _functions_allSwiper_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./functions/allSwiper.js */ "./src/js/functions/allSwiper.js");
-/* harmony import */ var _functions_watchBody_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./functions/watchBody.js */ "./src/js/functions/watchBody.js");
+/* harmony import */ var _functions_gameHandler_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./functions/gameHandler.js */ "./src/js/functions/gameHandler.js");
+/* harmony import */ var _functions_watchBody_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./functions/watchBody.js */ "./src/js/functions/watchBody.js");
+
 
 
 
@@ -11075,56 +11202,8 @@ window.addEventListener('DOMContentLoaded', () => {
   (0,_functions_onAnyClick_js__WEBPACK_IMPORTED_MODULE_2__.onClickBtn)();
   (0,_functions_allSwiper_js__WEBPACK_IMPORTED_MODULE_4__.setSwipers)();
   (0,_functions_lazyLoad_js__WEBPACK_IMPORTED_MODULE_1__.lazyLoad)();
-  (0,_functions_watchBody_js__WEBPACK_IMPORTED_MODULE_5__.observeBody)(['no-scrolling', 'is-start', 'loading']);
-  const game = document.querySelector(".game__game");
-  const iframe = game.querySelector("iframe");
-  const btnLike = game.querySelector(".game__like");
-  const btnDislike = game.querySelector(".game__dislike");
-  const btnFullscreen = game.querySelector(".game__fullscreen");
-  const savedState = localStorage.getItem("gameVote");
-  if (savedState === "like") {
-    btnLike.classList.add("active");
-  } else if (savedState === "dislike") {
-    btnDislike.classList.add("active");
-  }
-  btnLike.addEventListener("click", () => {
-    btnLike.classList.toggle("active");
-    if (btnLike.classList.contains("active")) {
-      btnDislike.classList.remove("active");
-      localStorage.setItem("gameVote", "like");
-    } else {
-      localStorage.removeItem("gameVote");
-    }
-  });
-  btnDislike.addEventListener("click", () => {
-    btnDislike.classList.toggle("active");
-    if (btnDislike.classList.contains("active")) {
-      btnLike.classList.remove("active");
-      localStorage.setItem("gameVote", "dislike");
-    } else {
-      localStorage.removeItem("gameVote");
-    }
-  });
-  function handleFullScreen() {
-    if (window.innerWidth <= 1024) {
-      if (iframe.requestFullscreen) {
-        iframe.requestFullscreen();
-      } else if (iframe.webkitRequestFullscreen) {
-        iframe.webkitRequestFullscreen();
-      } else if (iframe.msRequestFullscreen) {
-        iframe.msRequestFullscreen();
-      }
-    } else {
-      game.classList.toggle('full');
-      document.body.classList.toggle('no-scrolling');
-    }
-  }
-  if (btnFullscreen) {
-    btnFullscreen.addEventListener("click", handleFullScreen);
-    window.addEventListener('resize', () => {
-      btnFullscreen.addEventListener("click", handleFullScreen);
-    });
-  }
+  (0,_functions_watchBody_js__WEBPACK_IMPORTED_MODULE_6__.observeBody)(['no-scrolling', 'is-start', 'loading']);
+  (0,_functions_gameHandler_js__WEBPACK_IMPORTED_MODULE_5__.gameHandler)();
 });
 })();
 
