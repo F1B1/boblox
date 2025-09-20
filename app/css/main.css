@@ -648,6 +648,7 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  max-width: 95px;
 }
 .header__close {
   display: none;
@@ -685,7 +686,6 @@ p {
     padding: 12px 0;
   }
   .header-mobile.horizontal .header__logo {
-    width: 95px;
     -webkit-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
@@ -700,7 +700,7 @@ p {
 }
 
 .continue {
-  margin-top: 20px 0;
+  margin: 20px 0;
   overflow: hidden;
 }
 .continue__navigation {
@@ -828,7 +828,7 @@ p {
 }
 @media (max-width: 768px) {
   .recommendation__body {
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(clamp(8.75rem, 6.6964285714vw + 7.4107142857rem, 10.625rem), 1fr));
   }
 }
 .recommendation__column:hover h3 {

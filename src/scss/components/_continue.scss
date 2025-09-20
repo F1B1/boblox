@@ -1,5 +1,5 @@
 .continue {
-    margin-top: 20px 0;
+    margin: 20px 0;
     overflow: hidden;
 		&__container {
 		}
@@ -14,18 +14,6 @@
 		&__title {
             
 		}
-
-        // &__circle{
-        //     position: absolute;
-        //     width: 200px;
-        //     height: 200px;
-        //     background-color: var(--text-primary);
-        //     top: -10%;
-        //     right: -60%;
-        //     border-radius: 50%;
-        //     filter: blur(200px);
-        //     z-index: 1;
-        // }
 
 		&__buttons {
             display: flex;

@@ -9,6 +9,7 @@
 
     &__logo {
         display: flex;
+        max-width: 95px;
     }
 
     &__close{
@@ -39,7 +40,6 @@
                    padding: 12px 0;
            }
             .header__logo{
-                width: 95px;
                 transform: rotate(-90deg);
                 margin-bottom: 30px;
             }
