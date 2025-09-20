@@ -10697,6 +10697,7 @@ const gameHandler = () => {
     const btnLike = game.querySelector(".game__like");
     const btnDislike = game.querySelector(".game__dislike");
     const btnFullscreen = game.querySelector(".game__fullscreen");
+    const header = document.querySelector(".header");
     const savedState = localStorage.getItem("gameVote");
     if (savedState === "like") {
       btnLike.classList.add("active");
@@ -10722,7 +10723,19 @@ const gameHandler = () => {
       }
     });
     function isMobileDevice() {
-      return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      return window.innerWidth <= 1024 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    // Функция для проверки и установки класса horizontal
+    function checkOrientation() {
+      if (isMobileDevice()) {
+        const isLandscape = window.innerHeight < window.innerWidth;
+        if (isLandscape) {
+          header.classList.add('horizontal');
+        } else {
+          header.classList.remove('horizontal');
+        }
+      }
     }
     function lockLandscapeOrientation() {
       if (screen.orientation && screen.orientation.lock) {
@@ -10740,13 +10753,16 @@ const gameHandler = () => {
       if (isMobileDevice()) {
         game.classList.add('full-mobile');
         lockLandscapeOrientation();
+        setTimeout(() => {
+          checkOrientation();
+        }, 150);
       } else {
         game.classList.add('full');
       }
       document.body.classList.add('no-scrolling');
     }
     function exitFullscreen() {
-      game.classList.remove('full', 'full-mobile');
+      game.classList.remove('full', 'full-mobile', 'horizontal');
       document.body.classList.remove('no-scrolling');
       unlockOrientation();
     }
@@ -10781,23 +10797,30 @@ const gameHandler = () => {
       if (isMobileDevice() && game.classList.contains('full-mobile')) {
         setTimeout(() => {
           lockLandscapeOrientation();
+          checkOrientation();
         }, 100);
       }
     });
     window.addEventListener('resize', function () {
       if (!isMobileDevice() && game.classList.contains('full-mobile')) {
-        game.classList.remove('full-mobile');
+        game.classList.remove('full-mobile', 'horizontal');
         game.classList.add('full');
       } else if (isMobileDevice() && game.classList.contains('full')) {
         game.classList.remove('full');
         game.classList.add('full-mobile');
         lockLandscapeOrientation();
+        setTimeout(() => {
+          checkOrientation();
+        }, 50);
+      } else if (isMobileDevice()) {
+        checkOrientation();
       }
     });
     if (isMobileDevice()) {
       window.addEventListener('beforeunload', function (e) {
         unlockOrientation();
       });
+      checkOrientation();
     }
   }
 };
