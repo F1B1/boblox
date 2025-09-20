@@ -686,9 +686,9 @@ p {
     padding: 12px 0;
   }
   .header-mobile.horizontal .header__logo {
-    -webkit-transform: scale(1.4) rotate(-90deg);
-    -ms-transform: scale(1.4) rotate(-90deg);
-    transform: scale(1.4) rotate(-90deg);
+    -webkit-transform: scale(1.5) rotate(-90deg);
+    -ms-transform: scale(1.5) rotate(-90deg);
+    transform: scale(1.5) rotate(-90deg);
     margin-bottom: 30px;
   }
   .header-mobile .header__close {
