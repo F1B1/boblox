@@ -9,7 +9,7 @@
 
     &__logo {
         display: flex;
-        max-width: 95px;
+        max-width: 64px;
     }
 
     &__close{
@@ -25,7 +25,7 @@
         width: 100%;
         
         .header__container{
-            min-height: 59px;
+            min-height: 42px;
             display: flex;
             align-items:center;
             justify-content: space-between;
@@ -33,14 +33,14 @@
 
         &.horizontal{
              height: 100%;
-             width: 59px;
+             width: 42px;
            .header__container{
             flex-direction: column-reverse;
             height: 100%;
                    padding: 12px 0;
            }
             .header__logo{
-                transform: rotate(-90deg);
+                transform: scale(1.4) rotate(-90deg);
                 margin-bottom: 30px;
             }
         }

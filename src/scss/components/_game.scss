@@ -31,7 +31,7 @@
                 }
             }
             &.full-mobile{
-                width: calc(100% - 59px);
+                width: calc(100% - 42px);
                 padding: 0;
                 inset: unset;
                 top: 0;
@@ -247,9 +247,9 @@
     @media screen and (orientation: portrait) {
         .game__game {
             position: fixed !important;
-            top: calc(50% + 28px) !important;
+            top: calc(50% + 19px) !important;
             left: 50% !important;
-            width: calc(100vh - 59px) !important;
+            width: calc(100vh - 42px) !important;
             height: 100vw !important;
             -webkit-transform: translate(-50%, -50%) rotate(90deg) !important;
             -ms-transform: translate(-50%, -50%) rotate(90deg) !important;
@@ -259,7 +259,7 @@
             transform-origin: center center !important;
         }
         .game__game .game__wrapper {
-            width: calc(100dvh - 59px) !important;
+            width: calc(100dvh - 42px) !important;
             height: 100% !important;
             min-height: unset;
             top: 50%;

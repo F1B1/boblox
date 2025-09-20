@@ -648,7 +648,7 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-width: 95px;
+  max-width: 64px;
 }
 .header__close {
   display: none;
@@ -662,7 +662,7 @@ p {
     width: 100%;
   }
   .header-mobile .header__container {
-    min-height: 59px;
+    min-height: 42px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -675,7 +675,7 @@ p {
   }
   .header-mobile.horizontal {
     height: 100%;
-    width: 59px;
+    width: 42px;
   }
   .header-mobile.horizontal .header__container {
     -webkit-box-orient: vertical;
@@ -686,9 +686,9 @@ p {
     padding: 12px 0;
   }
   .header-mobile.horizontal .header__logo {
-    -webkit-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+    -webkit-transform: scale(1.4) rotate(-90deg);
+    -ms-transform: scale(1.4) rotate(-90deg);
+    transform: scale(1.4) rotate(-90deg);
     margin-bottom: 30px;
   }
   .header-mobile .header__close {
@@ -927,7 +927,7 @@ p {
   height: 95%;
 }
 .game__game.full-mobile {
-  width: calc(100% - 59px);
+  width: calc(100% - 42px);
   padding: 0;
   inset: unset;
   top: 0;
@@ -1161,9 +1161,9 @@ p {
 @media screen and (max-width: 1024px) and (orientation: portrait) {
   .game__game {
     position: fixed !important;
-    top: calc(50% + 28px) !important;
+    top: calc(50% + 19px) !important;
     left: 50% !important;
-    width: calc(100vh - 59px) !important;
+    width: calc(100vh - 42px) !important;
     height: 100vw !important;
     -webkit-transform: translate(-50%, -50%) rotate(90deg) !important;
     -ms-transform: translate(-50%, -50%) rotate(90deg) !important;
@@ -1173,7 +1173,7 @@ p {
     transform-origin: center center !important;
   }
   .game__game .game__wrapper {
-    width: calc(100dvh - 59px) !important;
+    width: calc(100dvh - 42px) !important;
     height: 100% !important;
     min-height: unset;
     top: 50%;
