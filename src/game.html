@@ -5,7 +5,17 @@
 
 <body class="page__body">
     <div class="site-container visible-s">
-        @include('partials/header.html')
+        <header class="header header-mobile" data-click-section>
+            <div class="header__container container">
+                <a href="index.html" class="header__logo">
+                    <img src="img/logo.svg" alt="img" width="115" heigth="36" loading="lazy">
+                </a>
+                <a href="index.html" class="btn btn-reset header__close">
+                    <img src="img/svg/close.svg" alt="img" width="17" heigth="17" loading="lazy">
+                </a>
+            </div>
+        </header>
+
         <main class="main">
          
             <section class="game">
@@ -16,6 +26,7 @@
                                 <iframe src="https://s3.ru1.storage.beget.cloud/bb6726601018-boblox-gamestorage/Games/000001/index.html" width="990" height="500" scrolling="yes">
                                 </iframe>
                             </div>
+                            
                             <div class="game__controls">
                                 <p class="game__game-name">Immortals Revenge</p>
                                 <div class="game__action">

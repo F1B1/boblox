@@ -10,4 +10,44 @@
     &__logo {
         display: flex;
     }
+
+    &__close{
+        display: none;
+    }
+}
+
+.header-mobile{
+    @include tablet{
+        position: absolute;
+        z-index: 10;
+        background-color: #000;
+        width: 100%;
+        
+        .header__container{
+            min-height: 59px;
+            display: flex;
+            align-items:center;
+            justify-content: space-between;
+        }
+
+        &.horizontal{
+             height: 100%;
+             width: 59px;
+           .header__container{
+            flex-direction: column-reverse;
+            height: 100%;
+                   padding: 12px 0;
+           }
+            .header__logo{
+                width: 95px;
+                transform: rotate(-90deg);
+                margin-bottom: 30px;
+            }
+        }
+        .header__close{
+            background-color: unset;
+            display: flex;
+        }
+    }
+    
 }

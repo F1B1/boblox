@@ -31,7 +31,12 @@
                 }
             }
             &.full-mobile{
-                  padding: 0;
+                width: calc(100% - 59px);
+                padding: 0;
+                inset: unset;
+                top: 0;
+                right: 0;
+                
                 .game__wrapper{
                   height: 100%;
                   border-radius: 0;
@@ -41,7 +46,7 @@
 
             &__wrapper{
                   width: 100%;
-                height: #{fluid(700px, 900px, 1920px, 2560px)};
+                min-height: #{fluid(700px, 900px, 1920px, 2560px)};
                 border: 1px solid #171E2F;
                 border-radius: 10px;
                 margin-bottom: 10px;
@@ -57,7 +62,9 @@
                   border: none;
                   
                 }
-               
+               @include tablet{
+                min-height: unset;
+               }
             }
 
             
@@ -66,7 +73,7 @@
             display: flex;
             align-items:center;
             justify-content: space-between; 
-            @include small-tablet{
+            @include tablet{
                   display: none;
             }
 		}
@@ -83,7 +90,7 @@
             justify-content: center;
             gap: 5px;
             button{
-                padding: 6px;
+                padding: #{fluid(6px, 9px, 1920px, 2560px)};
                 font-size: 13px;
                 font-weight: 500;
                 transition: all 0.4s ease 0s;
@@ -95,7 +102,7 @@
                 }
             }
             img{
-                 width: #{fluid(16px, 24px, 1920px, 2560px)};
+                 width: #{fluid(16px, 20px, 1920px, 2560px)};
                 transition: all 0.4s ease 0s;
             }
 		}
@@ -111,6 +118,7 @@
             .like-count{
                 padding-left: 2px;
                 font-size: #{fluid(13px, 20px, 1920px, 2560px)};
+                line-height: 0.9;
             }
 		}
 
@@ -125,13 +133,13 @@
 
 		&__breadcrumblist {
             margin-bottom: 16px;
-            @include small-tablet{
+            @include tablet{
                   display: none;
             }
 		}
 
 		&__description {
-                  @include small-tablet{
+                  @include tablet{
                   display: none;
             }
 		}
@@ -160,11 +168,9 @@
             padding: 16px;
             min-height: 100%;
             @include tablet{
-                flex: unset;
+               display: none;
             }
-            @include small-tablet{
-                  display: none;
-            }
+            
 		}
 
 		&__ads {
@@ -201,6 +207,9 @@
             img{
                 width: 100%;
                 height: 100%;
+                object-fit: contain;
+                border-radius: 4px;
+            overflow: hidden;
             }
 		}
 
@@ -210,8 +219,8 @@
 }
 
 
-@media screen and (max-width: 768px) {
-    .game__game.full-mobile ~ * {
+@media screen and (max-width: 1024px) {
+    .game__game ~ * {
         display: none !important;
     }
     
@@ -230,28 +239,35 @@
         position: fixed !important;
     }
     
-    .game__game.full-mobile {
+    .game__game {
         transform: rotate(0deg);
         transform-origin: center;
     }
     
     @media screen and (orientation: portrait) {
-        .game__game.full-mobile {
+        .game__game {
             position: fixed !important;
-            top: 50% !important;
+            top: calc(50% + 28px) !important;
             left: 50% !important;
-            width: 100vh !important;
+            width: calc(100vh - 59px) !important;
             height: 100vw !important;
+            -webkit-transform: translate(-50%, -50%) rotate(90deg) !important;
+            -ms-transform: translate(-50%, -50%) rotate(90deg) !important;
             transform: translate(-50%, -50%) rotate(90deg) !important;
+            -webkit-transform-origin: center center !important;
+            -ms-transform-origin: center center !important;
             transform-origin: center center !important;
         }
-        
-        .game__game.full-mobile .game__wrapper {
-            width: 100% !important;
+        .game__game .game__wrapper {
+            width: calc(100dvh - 59px) !important;
             height: 100% !important;
+            min-height: unset;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         
-        .game__game.full-mobile .game__wrapper iframe {
+        .game__game .game__wrapper iframe {
             width: 100% !important;
             height: 100% !important;
         }
