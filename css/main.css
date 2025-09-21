@@ -648,7 +648,6 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-width: 64px;
 }
 .header__close {
   display: none;
@@ -672,6 +671,9 @@ p {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+  }
+  .header-mobile .header__logo {
+    max-width: 64px;
   }
   .header-mobile.horizontal {
     height: 100%;
