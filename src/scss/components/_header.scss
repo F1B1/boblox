@@ -9,7 +9,6 @@
 
     &__logo {
         display: flex;
-        max-width: 64px;
     }
 
     &__close{
@@ -29,6 +28,10 @@
             display: flex;
             align-items:center;
             justify-content: space-between;
+        }
+        
+        .header__logo{
+             max-width: 64px;
         }
 
         &.horizontal{
