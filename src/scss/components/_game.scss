@@ -2,12 +2,13 @@
     margin-top: 20px;
     position: relative;
 		&__container {
-            
+            display: flex;
+            gap: 16px;
 		}
 
 		&__body {
             width: calc(100% - #{fluid(300px, 398px, 1024px, 1440px)});
-            padding-right: 16px;
+           
 		}
 
 		&__game {
@@ -158,19 +159,10 @@
 		}
 
 		&__aside {
-            position: absolute;
-            top: 0;
-            height: calc(100% + 64px);
-            right: 0;
+            position: relative;
+            flex: 1 1 auto; 
             width: #{fluid(300px, 398px, 1024px, 1440px)};
-            margin-right: var(--container-offset);
-            @include big-desktop {
-                margin-right: 16px;
-            }
-
-            @include small-tablet {
-                margin-right: 8px;
-            }
+       
             @include tablet{
                display: none;
             }
