@@ -932,7 +932,7 @@ p {
 }
 .game__wrapper {
   width: 100%;
-  min-height: clamp(43.75rem, 29.6875vw + 8.125rem, 55.625rem);
+  min-height: clamp(31.25rem, 34.8214285714vw + -0.0892857143rem, 55.625rem);
   border: 1px solid #171E2F;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -1094,12 +1094,6 @@ p {
   background-color: var(--bg-iframe);
   padding: 16px;
   min-height: 100%;
-  height: 100%;
-  overflow: hidden;
-  overflow-y: scroll;
-  overscroll-behavior-y: contain;
-  scrollbar-width: none;
-  z-index: 2020;
 }
 .game__ads {
   border-radius: 10px;
@@ -1133,6 +1127,8 @@ p {
 }
 .game__image {
   margin-bottom: 10px;
+  position: relative;
+  padding-bottom: 59%;
 }
 .game__image img {
   width: 100%;
@@ -1141,6 +1137,9 @@ p {
   object-fit: contain;
   border-radius: 4px;
   overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 @media screen and (max-width: 1024px) {
   .game__game ~ * {
