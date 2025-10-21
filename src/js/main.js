@@ -17,8 +17,10 @@ window.addEventListener('DOMContentLoaded', () => {
   setSwipers();
   lazyLoad();
   observeBody(['no-scrolling', 'is-start', 'loading']);
-  gameHandler();
+ gameHandler();
 
+
+  
 });
 
 

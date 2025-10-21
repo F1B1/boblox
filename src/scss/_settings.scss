@@ -85,6 +85,14 @@ p {
 
 }
 
+.site-container-game{
+    width: calc(100% - #{fluid(300px, 398px, 1024px, 1440px)});
+}
+
+.site-container-game:has(.game__game.full){
+    width: 100%;
+}
+
 .is-hidden {
     display: none !important; /* stylelint-disable-line declaration-no-important */
 }

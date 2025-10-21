@@ -17,6 +17,19 @@
 }
 
 .header-mobile{
+    border-bottom: 0;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    min-height: 35px;
+    padding: 0 15px;
+    .header__logo{
+        max-width: 69px;
+        padding-top: 0px;
+    }
+    p{
+        font-weight: 700;
+    }
     @include tablet{
         position: absolute;
         z-index: 10;
@@ -37,14 +50,15 @@
         &.horizontal{
              height: 100%;
              width: 42px;
-           .header__container{
             flex-direction: column-reverse;
             height: 100%;
                    padding: 12px 0;
-           }
             .header__logo{
                 transform: scale(1.5) rotate(-90deg);
                 margin-bottom: 30px;
+            }
+            p{
+                display: none;
             }
         }
         .header__close{

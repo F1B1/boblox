@@ -4,115 +4,43 @@
 @include('partials/head.html')
 
 <body class="page__body">
-    <div class="site-container visible-s">
+    <div class="site-container site-container-game visible-s">
         <header class="header header-mobile" data-click-section>
-            <div class="header__container container">
-                <a href="index.html" class="header__logo">
+            <a href="index.html" class="header__logo">
                     <img src="img/logo.svg" alt="img" width="115" heigth="36" loading="lazy">
                 </a>
+                <p>Обби: Выживи в пешере</p>
                 <a href="index.html" class="btn btn-reset header__close">
                     <img src="img/svg/close.svg" alt="img" width="15" heigth="15" loading="lazy">
                 </a>
-            </div>
+                <button class="game__fullscreen btn-reset" id="fullscreen-btn">
+                    <img src="img/svg/fullscreen.svg" alt="img" width="16" heigth="16" loading="lazy">
+                </button>
         </header>
 
         <main class="main">
          
             <section class="game">
-                <div class="game__container container">
-                    <div class="game__body">
+                <div class="game__body">
                         <div class="game__game">
                             <div class="game__wrapper">
-                                <iframe src="https://s3.ru1.storage.beget.cloud/bb6726601018-boblox-gamestorage/Games/000001/index.html" width="990" height="500" scrolling="yes">
+                                
+                                <iframe src="https://s3.ru1.storage.beget.cloud/bb6726601018-boblox-gamestorage/games/1000003/index.html" width="990" height="500" allow="fullscreen" scrolling="yes">
                                 </iframe>
+
                             </div>
-                            
-                            <div class="game__controls">
-                                <p class="game__game-name">Immortals Revenge</p>
-                                <div class="game__action">
-                                    <button class="game__like btn-reset btn">
-                                        <div class="like-count">205</div>
-                                        
-                                        <img src="img/svg/like.svg" alt="img" width="16" heigth="16" loading="lazy">
-                                    </button>
-                                    <button class="game__dislike btn-reset btn">
-                                        <img src="img/svg/dislike.svg" alt="img" width="16" heigth="16" loading="lazy">
-                                    </button>
-                                    <button class="game__fullscreen btn-reset btn">
-                                        <img src="img/svg/fullscreen.svg" alt="img" width="16" heigth="16" loading="lazy">
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="game__breadcrumblist breadcrumblist">
-                            <ol class="list-reset" itemscope="" itemtype="https://schema.org/BreadcrumbList">
-                                <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-                                    <a itemprop="item" href="index.html" class="">
-                                        <span itemprop="name">Главная</span>
-                                    </a>
-                                    <meta itemprop="position" content="1">
-                                </li>
-                                <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-                                    <span itemprop="name" class="current-item">Immortals Revenge</span>
-                                    <meta itemprop="position" content="2">
-                                </li>
-                            </ol>
-                        </div>
-                        <div class="game__description">
-                            <h1 class="game__title">Immortals Revenge</h1>
-                            <p class="game__text">Погрузитесь в захватывающий мир MMORPG Immortals Revenge, сочетающей в себе приключенческий, ролевой и hack-and-slash геймплей. Вдохновленные греческой мифологией, отправляйтесь в эпический поход в роли смертного, наделенного божественной силой, чтобы отомстить тем, кто угрожает порядку богов. Призовите суперсилы таких культовых фигур, как Афина, и вступите в захватывающие бои с грозными противниками, включая загадочного Аида. Благодаря богатому сюжету и обширным ландшафтам, которые вам предстоит исследовать, овладейте божественными способностями, чтобы восстановить равновесие на Олимпе. Готовы ли вы к величайшему приключению в Immortals Revenge?</p>
                             
                         </div>
                     </div>
-                    <div class="game__aside">
-                        <div class="game__content">
-                            <div class="game__ads">
-                                <p>Ads</p>
-                            </div>
-                            <div class="game__columns">
-                                @include('partials/game.html', {
-                                    'continueImage': 'img/games/01.png'
-                                })
-                                @include('partials/game.html', {
-                                    'continueImage': 'img/games/02.png'
-                                })
-                                @include('partials/game.html', {
-                                    'continueImage': 'img/games/03.png'
-                                })
-                                @include('partials/game.html', {
-                                    'continueImage': 'img/games/04.png'
-                                })
-                                @include('partials/game.html', {
-                                    'continueImage': 'img/games/05.png'
-                                })
-                                @include('partials/game.html', {
-                                    'continueImage': 'img/games/06.png'
-                                })
-                                @include('partials/game.html', {
-                                    'continueImage': 'img/games/07.png'
-                                })
-                                @include('partials/game.html', {
-                                    'continueImage': 'img/games/08.png'
-                                })
-                                  @include('partials/game.html', {
-                                    'continueImage': 'img/games/01.png'
-                                })
-                                @include('partials/game.html', {
-                                    'continueImage': 'img/games/02.png'
-                                })
-                             
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
 
             
             
-            <div class="circle"></div>
         </main>
-        @include('partials/footer.html')
     </div>
+    <script>
+        
+    </script>
 </body>
 
 </html>
