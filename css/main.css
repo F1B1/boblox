@@ -946,6 +946,8 @@ p {
 }
 .game__game.full .game__wrapper, .game__game.full-mobile .game__wrapper {
   height: 100vh;
+  width: calc(100% - 36px);
+  margin-left: 36px;
 }
 .game__game.full-mobile {
   width: calc(100% - 42px);
@@ -961,7 +963,7 @@ p {
 .game__wrapper {
   width: 100%;
   min-height: clamp(31.25rem, 34.8214285714vw + -0.0892857143rem, 55.625rem);
-  height: 100vh;
+  height: calc(100vh - 36px);
   position: relative;
   overflow: hidden;
   -webkit-transition: all 0.3s ease 0s;
@@ -1108,7 +1110,7 @@ p {
     position: fixed !important;
     top: calc(50% + 19px) !important;
     left: 50% !important;
-    width: calc(100vh - 42px) !important;
+    width: calc(100vh - 36px) !important;
     height: 100vw !important;
     -webkit-transform: translate(-50%, -50%) rotate(90deg) !important;
     -ms-transform: translate(-50%, -50%) rotate(90deg) !important;
