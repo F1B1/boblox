@@ -20,6 +20,8 @@
                 z-index: 1;
                 .game__wrapper{
                   height: 100vh;
+                  width: calc(100% - 36px);
+                  margin-left: 36px;
                 }
             }
             &.full-mobile{
@@ -39,7 +41,7 @@
         &__wrapper{
             width: 100%;
             min-height: #{fluid(500px, 890px, 1440px, 2560px)};
-            height: 100vh;
+            height: calc(100vh - 36px);
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease 0s;
@@ -184,7 +186,7 @@
             position: fixed !important;
             top: calc(50% + 19px) !important;
             left: 50% !important;
-            width: calc(100vh - 42px) !important;
+            width: calc(100vh - 36px) !important;
             height: 100vw !important;
             -webkit-transform: translate(-50%, -50%) rotate(90deg) !important;
             -ms-transform: translate(-50%, -50%) rotate(90deg) !important;
