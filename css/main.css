@@ -952,9 +952,6 @@ p {
   height: 100%;
   z-index: 1;
 }
-.game__game.full .game__wrapper, .game__game.full-mobile .game__wrapper {
-  height: 100vh;
-}
 .game__game.full-mobile {
   width: calc(100% - 42px);
   padding: 0;
@@ -990,6 +987,11 @@ p {
 }
 .game__fullscreen {
   border-radius: 8px;
+}
+@media (max-width: 1024px) {
+  .game__fullscreen {
+    display: none;
+  }
 }
 .game__breadcrumblist {
   margin-bottom: 16px;

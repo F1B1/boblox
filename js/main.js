@@ -10695,6 +10695,7 @@ const gameHandler = () => {
     const fullscreenBtn = document.getElementById('fullscreen-btn');
     const game = document.querySelector(".game__game");
     const header = document.querySelector("header");
+    let isAutoFullscreen = false;
 
     // Функция проверки ориентации
     function checkOrientation() {
@@ -10717,17 +10718,52 @@ const gameHandler = () => {
       return !!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement);
     }
 
-    // Проверка ориентации при загрузке страницы
-    checkOrientation();
+    // Функция автоматического включения полноэкранного режима на мобильных
+    function checkScreenSize() {
+      const isLandscape = checkOrientation();
 
-    // Проверка ориентации при ресайзе окна
+      // Включаем полноэкранный режим если:
+      // - экран меньше 1024px ИЛИ
+      // - портретная ориентация (для мобильных устройств)
+      const shouldAutoFullscreen = (window.innerWidth < 1024 || !isLandscape) && !isFullscreen();
+      if (shouldAutoFullscreen) {
+        isAutoFullscreen = true;
+        launchFullScreen();
+        game.classList.add('full');
+      }
+    }
+
+    // Проверка при загрузке страницы
+    checkOrientation();
+    checkScreenSize();
+
+    // Проверка при ресайзе окна
     window.addEventListener('resize', function () {
       checkOrientation();
+      // Добавляем задержку для стабилизации размера
+      setTimeout(checkScreenSize, 50);
     });
+
+    // Проверка при изменении ориентации на мобильных
+    window.addEventListener('orientationchange', function () {
+      setTimeout(() => {
+        checkOrientation();
+        checkScreenSize();
+      }, 150);
+    });
+
+    // Используем Screen Orientation API если доступен
+    if (screen.orientation) {
+      screen.orientation.addEventListener('change', function () {
+        checkOrientation();
+        checkScreenSize();
+      });
+    }
 
     // Обработчик клика по кнопке
     fullscreenBtn.addEventListener('click', function (event) {
       event.preventDefault();
+      isAutoFullscreen = false;
       if (isFullscreen()) {
         exitFullScreen();
         game.classList.remove('full');
@@ -10745,6 +10781,17 @@ const gameHandler = () => {
     function handleFullscreenChange() {
       if (!isFullscreen()) {
         game.classList.remove('full');
+
+        // Если это было автоматическое включение и условия всё ещё выполняются
+        const isLandscape = checkOrientation();
+        if (isAutoFullscreen && (window.innerWidth < 1024 || !isLandscape)) {
+          setTimeout(() => {
+            if (!isFullscreen()) {
+              launchFullScreen();
+              game.classList.add('full');
+            }
+          }, 100);
+        }
       }
     }
 
