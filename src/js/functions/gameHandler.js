@@ -3,15 +3,14 @@ export const gameHandler = ()=>{
        const fullscreenBtn = document.getElementById('fullscreen-btn');
         const game = document.querySelector(".game__game");
         const header = document.querySelector("header");
-        let isAutoFullscreen = false;
 
+        // Функция проверки ориентации
         function checkOrientation() {
             let isLandscape;
             
             if (screen.orientation) {
                 isLandscape = screen.orientation.type.includes('landscape');
             } else {
-
                 isLandscape = window.innerWidth > window.innerHeight;
             }
             
@@ -24,18 +23,7 @@ export const gameHandler = ()=>{
             return isLandscape;
         }
 
-        function checkScreenSize() {
-            const isLandscape = checkOrientation();
-            
-            const shouldAutoFullscreen = (window.innerWidth < 1024 || !isLandscape) && !isFullscreen();
-            
-            if (shouldAutoFullscreen) {
-                isAutoFullscreen = true;
-                launchFullScreen();
-                game.classList.add('full');
-            }
-        }
-
+        // Функция проверки полноэкранного режима
         function isFullscreen() {
             return !!(document.fullscreenElement || 
                     document.webkitFullscreenElement || 
@@ -43,34 +31,17 @@ export const gameHandler = ()=>{
                     document.msFullscreenElement);
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            checkOrientation();
-            checkScreenSize();
-        });
+        // Проверка ориентации при загрузке страницы
+        checkOrientation();
 
+        // Проверка ориентации при ресайзе окна
         window.addEventListener('resize', function() {
             checkOrientation();
-
-            setTimeout(checkScreenSize, 50);
         });
 
-        window.addEventListener('orientationchange', function() {
-            setTimeout(() => {
-                checkOrientation();
-                checkScreenSize();
-            }, 150);
-        });
-
-        if (screen.orientation) {
-            screen.orientation.addEventListener('change', function() {
-                checkOrientation();
-                checkScreenSize();
-            });
-        }
-
+        // Обработчик клика по кнопке
         fullscreenBtn.addEventListener('click', function(event) {
             event.preventDefault();
-            isAutoFullscreen = false;
             
             if (isFullscreen()) {
                 exitFullScreen();
@@ -81,6 +52,7 @@ export const gameHandler = ()=>{
             }
         });
 
+        // Обработчики выхода из полноэкранного режима
         document.addEventListener('fullscreenchange', handleFullscreenChange);
         document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
         document.addEventListener('mozfullscreenchange', handleFullscreenChange);
@@ -89,19 +61,10 @@ export const gameHandler = ()=>{
         function handleFullscreenChange() {
             if (!isFullscreen()) {
                 game.classList.remove('full');
-                
-                const isLandscape = checkOrientation();
-                if (isAutoFullscreen && (window.innerWidth < 1024 || !isLandscape)) {
-                    setTimeout(() => {
-                        if (!isFullscreen()) {
-                            launchFullScreen();
-                            game.classList.add('full');
-                        }
-                    }, 100);
-                }
             }
         }
 
+        // Функции управления полноэкранным режимом
         function launchFullScreen() {
             const element = document.documentElement; 
             if (element.requestFullscreen) element.requestFullscreen();
@@ -116,6 +79,5 @@ export const gameHandler = ()=>{
             else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
             else if (document.msExitFullscreen) document.msExitFullscreen();
         }
-
     }
 }

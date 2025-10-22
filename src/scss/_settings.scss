@@ -86,7 +86,10 @@ p {
 }
 
 .site-container-game{
-    width: calc(100% - #{fluid(300px, 398px, 1024px, 1440px)});
+    width: calc(100% - #{fluid(200px, 300px, 1024px, 1440px)});
+    @include tablet{
+        width: 100%;
+    }
 }
 
 .site-container-game:has(.game__game.full){
